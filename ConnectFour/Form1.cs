@@ -43,7 +43,6 @@ namespace ConnectFour
                 _board = new Board();
                 DrawBoard(_board.GameBoard);
             }
-            label1.Text = _board.PlayerTurn + " turn";
         }
 
         private void DrawBoard(Piece[,] board)
@@ -67,7 +66,17 @@ namespace ConnectFour
                 }
 
             }
+            label1.Text = _board.PlayerTurn + "'s Turn";
+            label1.ForeColor = _board.PlayerTurn == Piece.Red ? Color.Red : Color.Yellow;
         }
-       
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to create a new game ?\nThis action can NOT be undone",
+                    Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) !=
+                DialogResult.Yes) return;
+            _board = new Board();
+            DrawBoard(_board.GameBoard);
+        }
     }
 }
