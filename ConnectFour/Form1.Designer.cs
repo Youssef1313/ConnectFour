@@ -636,6 +636,7 @@
             this.Controls.Add(this.pb01);
             this.Controls.Add(this.pb00);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pb56)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb55)).EndInit();
