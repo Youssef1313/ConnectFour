@@ -9,12 +9,13 @@ namespace ConnectFour
 {
     class Board
     {
+        private string _moves = "";
         private const byte RowsCount = 6;
         private const byte ColumnsCount = 7;
 
         public Piece PlayerTurn { get; private set; } = Piece.Red;
 
-        public Piece[,] GameBoard { get; } = new Piece[RowsCount, ColumnsCount];
+        public Piece[,] GameBoard { get; private set; } = new Piece[RowsCount, ColumnsCount];
 
         public void Play(byte columnIndex)
         {
@@ -25,10 +26,23 @@ namespace ConnectFour
             {
                 if (column[i] != Piece.None) continue;
                 GameBoard[i, columnIndex] = PlayerTurn;
+                _moves += columnIndex.ToString();
                 RevertPlayer();
                 break;
             }
+        }
 
+        public void UndoLastMove()
+        {
+            if (_moves.Length == 0) throw new InvalidOperationException("There is nothing to undo.");
+            var tempMoves = _moves.Substring(0, _moves.Length - 1);
+            _moves = "";
+            GameBoard = new Piece[RowsCount, ColumnsCount];
+            PlayerTurn = Piece.Red;
+            foreach (var move in tempMoves)
+            {
+                Play((byte) (move - '0'));
+            }
         }
 
         public Piece CheckForWinner()

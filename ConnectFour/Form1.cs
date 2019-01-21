@@ -78,5 +78,20 @@ namespace ConnectFour
             _board = new Board();
             DrawBoard(_board.GameBoard);
         }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _board.UndoLastMove();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            DrawBoard(_board.GameBoard);
+
+        }
     }
 }

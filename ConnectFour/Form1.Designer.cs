@@ -72,6 +72,7 @@
             this.pb01 = new System.Windows.Forms.PictureBox();
             this.pb00 = new System.Windows.Forms.PictureBox();
             this.btnNewGame = new System.Windows.Forms.Button();
+            this.btnUndo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb56)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb55)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb54)).BeginInit();
@@ -131,7 +132,7 @@
             // pb56
             // 
             this.pb56.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb56.Location = new System.Drawing.Point(849, 714);
+            this.pb56.Location = new System.Drawing.Point(849, 729);
             this.pb56.Name = "pb56";
             this.pb56.Size = new System.Drawing.Size(134, 134);
             this.pb56.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -142,7 +143,7 @@
             // pb55
             // 
             this.pb55.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb55.Location = new System.Drawing.Point(715, 714);
+            this.pb55.Location = new System.Drawing.Point(715, 729);
             this.pb55.Name = "pb55";
             this.pb55.Size = new System.Drawing.Size(134, 134);
             this.pb55.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -153,7 +154,7 @@
             // pb54
             // 
             this.pb54.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb54.Location = new System.Drawing.Point(581, 714);
+            this.pb54.Location = new System.Drawing.Point(581, 729);
             this.pb54.Name = "pb54";
             this.pb54.Size = new System.Drawing.Size(134, 134);
             this.pb54.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -164,7 +165,7 @@
             // pb53
             // 
             this.pb53.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb53.Location = new System.Drawing.Point(447, 714);
+            this.pb53.Location = new System.Drawing.Point(447, 729);
             this.pb53.Name = "pb53";
             this.pb53.Size = new System.Drawing.Size(134, 134);
             this.pb53.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -175,7 +176,7 @@
             // pb52
             // 
             this.pb52.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb52.Location = new System.Drawing.Point(313, 714);
+            this.pb52.Location = new System.Drawing.Point(313, 729);
             this.pb52.Name = "pb52";
             this.pb52.Size = new System.Drawing.Size(134, 134);
             this.pb52.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -186,7 +187,7 @@
             // pb51
             // 
             this.pb51.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb51.Location = new System.Drawing.Point(179, 714);
+            this.pb51.Location = new System.Drawing.Point(179, 729);
             this.pb51.Name = "pb51";
             this.pb51.Size = new System.Drawing.Size(134, 134);
             this.pb51.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -197,7 +198,7 @@
             // pb50
             // 
             this.pb50.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb50.Location = new System.Drawing.Point(45, 714);
+            this.pb50.Location = new System.Drawing.Point(45, 729);
             this.pb50.Name = "pb50";
             this.pb50.Size = new System.Drawing.Size(134, 134);
             this.pb50.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -208,7 +209,7 @@
             // pb46
             // 
             this.pb46.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb46.Location = new System.Drawing.Point(849, 580);
+            this.pb46.Location = new System.Drawing.Point(849, 595);
             this.pb46.Name = "pb46";
             this.pb46.Size = new System.Drawing.Size(134, 134);
             this.pb46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -219,7 +220,7 @@
             // pb45
             // 
             this.pb45.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb45.Location = new System.Drawing.Point(715, 580);
+            this.pb45.Location = new System.Drawing.Point(715, 595);
             this.pb45.Name = "pb45";
             this.pb45.Size = new System.Drawing.Size(134, 134);
             this.pb45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -230,7 +231,7 @@
             // pb44
             // 
             this.pb44.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb44.Location = new System.Drawing.Point(581, 580);
+            this.pb44.Location = new System.Drawing.Point(581, 595);
             this.pb44.Name = "pb44";
             this.pb44.Size = new System.Drawing.Size(134, 134);
             this.pb44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -241,7 +242,7 @@
             // pb43
             // 
             this.pb43.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb43.Location = new System.Drawing.Point(447, 580);
+            this.pb43.Location = new System.Drawing.Point(447, 595);
             this.pb43.Name = "pb43";
             this.pb43.Size = new System.Drawing.Size(134, 134);
             this.pb43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -252,7 +253,7 @@
             // pb42
             // 
             this.pb42.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb42.Location = new System.Drawing.Point(313, 580);
+            this.pb42.Location = new System.Drawing.Point(313, 595);
             this.pb42.Name = "pb42";
             this.pb42.Size = new System.Drawing.Size(134, 134);
             this.pb42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -263,7 +264,7 @@
             // pb41
             // 
             this.pb41.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb41.Location = new System.Drawing.Point(179, 580);
+            this.pb41.Location = new System.Drawing.Point(179, 595);
             this.pb41.Name = "pb41";
             this.pb41.Size = new System.Drawing.Size(134, 134);
             this.pb41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -274,7 +275,7 @@
             // pb40
             // 
             this.pb40.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb40.Location = new System.Drawing.Point(45, 580);
+            this.pb40.Location = new System.Drawing.Point(45, 595);
             this.pb40.Name = "pb40";
             this.pb40.Size = new System.Drawing.Size(134, 134);
             this.pb40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -285,7 +286,7 @@
             // pb36
             // 
             this.pb36.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb36.Location = new System.Drawing.Point(849, 446);
+            this.pb36.Location = new System.Drawing.Point(849, 461);
             this.pb36.Name = "pb36";
             this.pb36.Size = new System.Drawing.Size(134, 134);
             this.pb36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -296,7 +297,7 @@
             // pb35
             // 
             this.pb35.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb35.Location = new System.Drawing.Point(715, 446);
+            this.pb35.Location = new System.Drawing.Point(715, 461);
             this.pb35.Name = "pb35";
             this.pb35.Size = new System.Drawing.Size(134, 134);
             this.pb35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -307,7 +308,7 @@
             // pb34
             // 
             this.pb34.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb34.Location = new System.Drawing.Point(581, 446);
+            this.pb34.Location = new System.Drawing.Point(581, 461);
             this.pb34.Name = "pb34";
             this.pb34.Size = new System.Drawing.Size(134, 134);
             this.pb34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -318,7 +319,7 @@
             // pb33
             // 
             this.pb33.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb33.Location = new System.Drawing.Point(447, 446);
+            this.pb33.Location = new System.Drawing.Point(447, 461);
             this.pb33.Name = "pb33";
             this.pb33.Size = new System.Drawing.Size(134, 134);
             this.pb33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -329,7 +330,7 @@
             // pb32
             // 
             this.pb32.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb32.Location = new System.Drawing.Point(313, 446);
+            this.pb32.Location = new System.Drawing.Point(313, 461);
             this.pb32.Name = "pb32";
             this.pb32.Size = new System.Drawing.Size(134, 134);
             this.pb32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -340,7 +341,7 @@
             // pb31
             // 
             this.pb31.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb31.Location = new System.Drawing.Point(179, 446);
+            this.pb31.Location = new System.Drawing.Point(179, 461);
             this.pb31.Name = "pb31";
             this.pb31.Size = new System.Drawing.Size(134, 134);
             this.pb31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -351,7 +352,7 @@
             // pb30
             // 
             this.pb30.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb30.Location = new System.Drawing.Point(45, 446);
+            this.pb30.Location = new System.Drawing.Point(45, 461);
             this.pb30.Name = "pb30";
             this.pb30.Size = new System.Drawing.Size(134, 134);
             this.pb30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -362,7 +363,7 @@
             // pb26
             // 
             this.pb26.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb26.Location = new System.Drawing.Point(849, 312);
+            this.pb26.Location = new System.Drawing.Point(849, 327);
             this.pb26.Name = "pb26";
             this.pb26.Size = new System.Drawing.Size(134, 134);
             this.pb26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -373,7 +374,7 @@
             // pb25
             // 
             this.pb25.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb25.Location = new System.Drawing.Point(715, 312);
+            this.pb25.Location = new System.Drawing.Point(715, 327);
             this.pb25.Name = "pb25";
             this.pb25.Size = new System.Drawing.Size(134, 134);
             this.pb25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -384,7 +385,7 @@
             // pb24
             // 
             this.pb24.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb24.Location = new System.Drawing.Point(581, 312);
+            this.pb24.Location = new System.Drawing.Point(581, 327);
             this.pb24.Name = "pb24";
             this.pb24.Size = new System.Drawing.Size(134, 134);
             this.pb24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -395,7 +396,7 @@
             // pb23
             // 
             this.pb23.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb23.Location = new System.Drawing.Point(447, 312);
+            this.pb23.Location = new System.Drawing.Point(447, 327);
             this.pb23.Name = "pb23";
             this.pb23.Size = new System.Drawing.Size(134, 134);
             this.pb23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -406,7 +407,7 @@
             // pb22
             // 
             this.pb22.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb22.Location = new System.Drawing.Point(313, 312);
+            this.pb22.Location = new System.Drawing.Point(313, 327);
             this.pb22.Name = "pb22";
             this.pb22.Size = new System.Drawing.Size(134, 134);
             this.pb22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -417,7 +418,7 @@
             // pb21
             // 
             this.pb21.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb21.Location = new System.Drawing.Point(179, 312);
+            this.pb21.Location = new System.Drawing.Point(179, 327);
             this.pb21.Name = "pb21";
             this.pb21.Size = new System.Drawing.Size(134, 134);
             this.pb21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -428,7 +429,7 @@
             // pb20
             // 
             this.pb20.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb20.Location = new System.Drawing.Point(45, 312);
+            this.pb20.Location = new System.Drawing.Point(45, 327);
             this.pb20.Name = "pb20";
             this.pb20.Size = new System.Drawing.Size(134, 134);
             this.pb20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -439,7 +440,7 @@
             // pb16
             // 
             this.pb16.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb16.Location = new System.Drawing.Point(849, 178);
+            this.pb16.Location = new System.Drawing.Point(849, 193);
             this.pb16.Name = "pb16";
             this.pb16.Size = new System.Drawing.Size(134, 134);
             this.pb16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -450,7 +451,7 @@
             // pb15
             // 
             this.pb15.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb15.Location = new System.Drawing.Point(715, 178);
+            this.pb15.Location = new System.Drawing.Point(715, 193);
             this.pb15.Name = "pb15";
             this.pb15.Size = new System.Drawing.Size(134, 134);
             this.pb15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -461,7 +462,7 @@
             // pb14
             // 
             this.pb14.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb14.Location = new System.Drawing.Point(581, 178);
+            this.pb14.Location = new System.Drawing.Point(581, 193);
             this.pb14.Name = "pb14";
             this.pb14.Size = new System.Drawing.Size(134, 134);
             this.pb14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -472,7 +473,7 @@
             // pb13
             // 
             this.pb13.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb13.Location = new System.Drawing.Point(447, 178);
+            this.pb13.Location = new System.Drawing.Point(447, 193);
             this.pb13.Name = "pb13";
             this.pb13.Size = new System.Drawing.Size(134, 134);
             this.pb13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -483,7 +484,7 @@
             // pb12
             // 
             this.pb12.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb12.Location = new System.Drawing.Point(313, 178);
+            this.pb12.Location = new System.Drawing.Point(313, 193);
             this.pb12.Name = "pb12";
             this.pb12.Size = new System.Drawing.Size(134, 134);
             this.pb12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -494,7 +495,7 @@
             // pb11
             // 
             this.pb11.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb11.Location = new System.Drawing.Point(179, 178);
+            this.pb11.Location = new System.Drawing.Point(179, 193);
             this.pb11.Name = "pb11";
             this.pb11.Size = new System.Drawing.Size(134, 134);
             this.pb11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -505,7 +506,7 @@
             // pb10
             // 
             this.pb10.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb10.Location = new System.Drawing.Point(45, 178);
+            this.pb10.Location = new System.Drawing.Point(45, 193);
             this.pb10.Name = "pb10";
             this.pb10.Size = new System.Drawing.Size(134, 134);
             this.pb10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -516,7 +517,7 @@
             // pb06
             // 
             this.pb06.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb06.Location = new System.Drawing.Point(849, 44);
+            this.pb06.Location = new System.Drawing.Point(849, 59);
             this.pb06.Name = "pb06";
             this.pb06.Size = new System.Drawing.Size(134, 134);
             this.pb06.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -527,7 +528,7 @@
             // pb05
             // 
             this.pb05.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb05.Location = new System.Drawing.Point(715, 44);
+            this.pb05.Location = new System.Drawing.Point(715, 59);
             this.pb05.Name = "pb05";
             this.pb05.Size = new System.Drawing.Size(134, 134);
             this.pb05.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -538,7 +539,7 @@
             // pb04
             // 
             this.pb04.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb04.Location = new System.Drawing.Point(581, 44);
+            this.pb04.Location = new System.Drawing.Point(581, 59);
             this.pb04.Name = "pb04";
             this.pb04.Size = new System.Drawing.Size(134, 134);
             this.pb04.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -549,7 +550,7 @@
             // pb03
             // 
             this.pb03.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb03.Location = new System.Drawing.Point(447, 44);
+            this.pb03.Location = new System.Drawing.Point(447, 59);
             this.pb03.Name = "pb03";
             this.pb03.Size = new System.Drawing.Size(134, 134);
             this.pb03.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -560,7 +561,7 @@
             // pb02
             // 
             this.pb02.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb02.Location = new System.Drawing.Point(313, 44);
+            this.pb02.Location = new System.Drawing.Point(313, 59);
             this.pb02.Name = "pb02";
             this.pb02.Size = new System.Drawing.Size(134, 134);
             this.pb02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -571,7 +572,7 @@
             // pb01
             // 
             this.pb01.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb01.Location = new System.Drawing.Point(179, 44);
+            this.pb01.Location = new System.Drawing.Point(179, 59);
             this.pb01.Name = "pb01";
             this.pb01.Size = new System.Drawing.Size(134, 134);
             this.pb01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -582,7 +583,7 @@
             // pb00
             // 
             this.pb00.Image = global::ConnectFour.Properties.Resources.empty;
-            this.pb00.Location = new System.Drawing.Point(45, 44);
+            this.pb00.Location = new System.Drawing.Point(45, 59);
             this.pb00.Name = "pb00";
             this.pb00.Size = new System.Drawing.Size(134, 134);
             this.pb00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -593,7 +594,7 @@
             // btnNewGame
             // 
             this.btnNewGame.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.btnNewGame.Location = new System.Drawing.Point(424, 854);
+            this.btnNewGame.Location = new System.Drawing.Point(45, 12);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(187, 41);
             this.btnNewGame.TabIndex = 43;
@@ -601,11 +602,23 @@
             this.btnNewGame.UseVisualStyleBackColor = true;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
+            this.btnUndo.Location = new System.Drawing.Point(796, 12);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(187, 41);
+            this.btnUndo.TabIndex = 44;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 899);
+            this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pb56);
@@ -746,6 +759,7 @@
         private System.Windows.Forms.PictureBox pb50;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Button btnUndo;
     }
 }
 
