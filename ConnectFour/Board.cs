@@ -60,6 +60,7 @@ namespace ConnectFour
                 if (winningPiece != Piece.None) return winningPiece;
             }
             // negative slope
+
             var diagonal1 = new[] {GameBoard[2, 0], GameBoard[3, 1], GameBoard[4, 2], GameBoard[5, 3]};
             var diagonal2 = new[] {GameBoard[1, 0], GameBoard[2, 1], GameBoard[3, 2], GameBoard[4, 3], GameBoard[5, 4]};
             var diagonal3 = new[] {GameBoard[0, 0], GameBoard[1, 1], GameBoard[2, 2], GameBoard[3, 3], GameBoard[4, 4], GameBoard[5, 5]};
@@ -69,47 +70,36 @@ namespace ConnectFour
 
             // positive slope
             var diagonal7 = new[] { GameBoard[3, 0], GameBoard[2, 1], GameBoard[1, 2], GameBoard[0, 3] };
-            var diagonal8 = new[] { GameBoard[4, 0], GameBoard[3, 1], GameBoard[2, 2], GameBoard[1, 3], GameBoard[0, 4]};
-            var diagonal9 = new[] { GameBoard[5, 0], GameBoard[4, 1], GameBoard[3, 2], GameBoard[2, 3], GameBoard[1, 4], GameBoard[0, 5]};
+            var diagonal8 = new[] { GameBoard[4, 0], GameBoard[3, 1], GameBoard[2, 2], GameBoard[1, 3], GameBoard[0, 4] };
+            var diagonal9 = new[] { GameBoard[5, 0], GameBoard[4, 1], GameBoard[3, 2], GameBoard[2, 3], GameBoard[1, 4], GameBoard[0, 5] };
             var diagonal10 = new[] { GameBoard[5, 1], GameBoard[4, 2], GameBoard[3, 3], GameBoard[2, 4], GameBoard[1, 5], GameBoard[0, 6] };
-            var diagonal11 = new[] { GameBoard[5, 2], GameBoard[4, 3], GameBoard[3, 4], GameBoard[2, 5], GameBoard[1, 6]};
-            var diagonal12 = new[] { GameBoard[5, 3], GameBoard[4, 4], GameBoard[3, 5], GameBoard[2, 6]};
+            var diagonal11 = new[] { GameBoard[5, 2], GameBoard[4, 3], GameBoard[3, 4], GameBoard[2, 5], GameBoard[1, 6] };
+            var diagonal12 = new[] { GameBoard[5, 3], GameBoard[4, 4], GameBoard[3, 5], GameBoard[2, 6] };
 
-            winningPiece = HasForInRow(diagonal1);
-            if (winningPiece != Piece.None) return winningPiece;
+            var diagonals = new[]
+            {
 
-            winningPiece = HasForInRow(diagonal2);
-            if (winningPiece != Piece.None) return winningPiece;
+                diagonal1,
+                diagonal2,
+                diagonal3,
+                diagonal4,
+                diagonal5,
+                diagonal6,
+                diagonal7,
+                diagonal8,
+                diagonal9,
+                diagonal10,
+                diagonal11,
+                diagonal12
 
-            winningPiece = HasForInRow(diagonal3);
-            if (winningPiece != Piece.None) return winningPiece;
+            };
 
-            winningPiece = HasForInRow(diagonal4);
-            if (winningPiece != Piece.None) return winningPiece;
+            foreach (var diagonal in diagonals)
+            {
+                winningPiece = HasForInRow(diagonal);
+                if (winningPiece != Piece.None) return winningPiece;
+            }
 
-            winningPiece = HasForInRow(diagonal5);
-            if (winningPiece != Piece.None) return winningPiece;
-
-            winningPiece = HasForInRow(diagonal6);
-            if (winningPiece != Piece.None) return winningPiece;
-
-            winningPiece = HasForInRow(diagonal7);
-            if (winningPiece != Piece.None) return winningPiece;
-
-            winningPiece = HasForInRow(diagonal8);
-            if (winningPiece != Piece.None) return winningPiece;
-
-            winningPiece = HasForInRow(diagonal9);
-            if (winningPiece != Piece.None) return winningPiece;
-
-            winningPiece = HasForInRow(diagonal10);
-            if (winningPiece != Piece.None) return winningPiece;
-
-            winningPiece = HasForInRow(diagonal11);
-            if (winningPiece != Piece.None) return winningPiece;
-
-            winningPiece = HasForInRow(diagonal12);
-            if (winningPiece != Piece.None) return winningPiece;
             return Piece.None;
         }
 
