@@ -12,7 +12,7 @@ namespace ConnectFour
 {
     public partial class Form1 : Form
     {
-        private  Board _board = new Board();
+        private  ConnectFour _board = new ConnectFour(new XInARowGameEngine());
         public Form1()
         {
             InitializeComponent();
@@ -35,39 +35,38 @@ namespace ConnectFour
             {
                 MessageBox.Show(exception.Message);
             }
-            DrawBoard(_board.GameBoard);
-            var winnerPiece = _board.CheckForWinner();
-            if (winnerPiece != Piece.None)
+            DrawBoard(_board);
+            if (_board.Winner != Player.None)
             {
-                MessageBox.Show($"GAME OVER!!\n{winnerPiece} Wins");
-                _board = new Board();
-                DrawBoard(_board.GameBoard);
+                MessageBox.Show($"GAME OVER!!\n{_board.Winner} Wins");
+                _board = new ConnectFour(new XInARowGameEngine());
+                DrawBoard(_board);
             }
         }
 
-        private void DrawBoard(Piece[,] board)
+        private void DrawBoard(ConnectFour connectFour)
         {
             foreach (var pb in this.Controls.OfType<PictureBox>())
             {
-                var rowIndex = pb.Name[2] - '0';
-                var columnIndex = pb.Name[3] - '0';
-                var piece = board[rowIndex, columnIndex];
+                int rowIndex = pb.Name[2] - '0';
+                int columnIndex = pb.Name[3] - '0';
+                Player piece = connectFour.GetPieceAt(rowIndex, columnIndex);
                 switch (piece)
                 {
-                    case Piece.Red:
+                    case Player.Red:
                         pb.Image = Properties.Resources.red;
                         break;
-                    case Piece.Yellow:
+                    case Player.Yellow:
                         pb.Image = Properties.Resources.yellow;
                         break;
-                    case Piece.None:
+                    case Player.None:
                         pb.Image = Properties.Resources.empty;
                         break;
                 }
 
             }
-            label1.Text = _board.PlayerTurn + "'s Turn";
-            label1.ForeColor = _board.PlayerTurn == Piece.Red ? Color.Red : Color.Yellow;
+            label1.Text = $"{_board.WhoseTurn}'s Turn";
+            label1.ForeColor = _board.WhoseTurn == Player.Red ? Color.Red : Color.Yellow;
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
@@ -75,8 +74,8 @@ namespace ConnectFour
             if (MessageBox.Show("Are you sure you want to create a new game ?\nThis action can NOT be undone",
                     Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) !=
                 DialogResult.Yes) return;
-            _board = new Board();
-            DrawBoard(_board.GameBoard);
+            _board = new ConnectFour(new XInARowGameEngine());
+            DrawBoard(_board);
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -85,12 +84,12 @@ namespace ConnectFour
             {
                 _board.UndoLastMove();
             }
-            catch (Exception exception)
+            catch (InvalidOperationException ex)
             {
-                MessageBox.Show(exception.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
-            DrawBoard(_board.GameBoard);
+            DrawBoard(_board);
 
         }
     }
