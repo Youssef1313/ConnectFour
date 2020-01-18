@@ -22,7 +22,7 @@ namespace ConnectFour
         public void Play(byte columnIndex)
         {
 
-            Player[] column = _engine.GetColumn(columnIndex);
+            Player[] column = _engine.GetColumn(columnIndex).ToArray();
             if (column.Count(m => m == Player.None) == 0) throw new InvalidOperationException("This column is already filled.");
             int rowIndex = Array.LastIndexOf(column, Player.None);
             _engine.Play(rowIndex, columnIndex);

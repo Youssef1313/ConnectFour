@@ -83,12 +83,94 @@ namespace ConnectFour
 
         public Player GetPieceAt(int row, int column) => _board[row, column];
 
-        public Player[] GetColumn(int columnIndex) => Enumerable.Range(0, Rows).Select(m => _board[m, columnIndex]).ToArray();
+        public IEnumerable<Player> GetColumn(int columnIndex) => Enumerable.Range(0, Rows).Select(m => _board[m, columnIndex]);
+        public IEnumerable<Player> GetRow(int rowIndex) => Enumerable.Range(0, Columns).Select(m => _board[rowIndex, m]);
 
         // Private methods.
         private Player GetWinner()
         {
-            throw new NotImplementedException(); // TODO: Implement it!
+            // Check rows.
+            for (var i = 0; i < Rows; i++)
+            {
+                Player winner = HasXInARow(GetRow(i));
+                if (winner != Player.None)
+                {
+                    return winner;
+                }
+            }
+
+            // Check columns.
+            for (var i = 0; i < Columns; i++)
+            {
+                Player winner = HasXInARow(GetColumn(i));
+                if (winner != Player.None)
+                {
+                    return winner;
+                }
+            }
+
+            // TODO: Performance ??
+
+            var possibleIndices = new List<(int Row, int Column)>();
+            for (var i = 0; i < Rows; i++)
+            {
+                for (var j = 0; j < Columns; j++)
+                {
+                    possibleIndices.Add((i, j));
+                }
+            }
+
+            // Check BottomLeft diagonals.
+            for (var i = X; i <= Rows + Columns; i++) // Start with X instead of 1 for performance. (Total number of diagonals is Rows + Columns, but we don't need diagonals containing less than X elements)
+            {
+                IEnumerable<(int Row, int Column)> diagonal = possibleIndices.Where(t => t.Row + t.Column == i);
+                if (diagonal.Count() < X) break;
+                Player winner = HasXInARow(diagonal.Select(t => _board[t.Row, t.Column]));
+                if (winner != Player.None)
+                {
+                    return winner;
+                }
+            }
+
+            // Check BottomRight diagonals. (Too bad performance - the general idea isn't too good)
+            int max = Math.Max(Rows, Columns);
+            for (var i = -max; i <= max; i++)
+            {
+                IEnumerable<(int Row, int Column)> diagonal = possibleIndices.Where(t => t.Row - t.Column == i);
+                Player winner = HasXInARow(diagonal.Select(t => _board[t.Row, t.Column]));
+                if (winner != Player.None)
+                {
+                    return winner;
+                }
+            }
+            return Player.None;
+        }
+
+        private Player HasXInARow(IEnumerable<Player> elements)
+        {
+            Player player = Player.None;
+            int count = 0;
+            foreach (Player element in elements)
+            {
+                if (element == Player.None)
+                {
+                    player = element;
+                    count = 0;
+                }
+                else if (element == player)
+                {
+                    if (++count == X)
+                    {
+                        return player;
+                    }
+                }
+                else
+                {
+                    player = element;
+                    count = 1;
+                }
+            }
+            return Player.None;
         }
     }
 }

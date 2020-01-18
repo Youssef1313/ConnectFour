@@ -1,4 +1,6 @@
-﻿namespace ConnectFour
+﻿using System.Collections.Generic;
+
+namespace ConnectFour
 {
     interface IXInARowGameEngine
     {
@@ -11,7 +13,8 @@
         void Play(int rowIndex, int columnIndex);
         void UndoLastMove();
         void SetDimensions(int rows, int columns);
-        Player[] GetColumn(int columnIndex);
+        IEnumerable<Player> GetColumn(int columnIndex);
+        IEnumerable<Player> GetRow(int rowIndex);
         Player GetPieceAt(int row, int column);
     }
 }
