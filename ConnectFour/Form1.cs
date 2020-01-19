@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConnectFour
 {
     public partial class Form1 : Form
     {
-        private  Board _board = new Board();
+        private  ConnectFour connectFour = new ConnectFour(new XInARowGameEngine());
         public Form1()
         {
             InitializeComponent();
-            foreach (var pb in this.Controls.OfType<PictureBox>())
+            foreach (var pb in Controls.OfType<PictureBox>())
             {
                 pb.Click += pb_Click;
             }
@@ -25,49 +20,50 @@ namespace ConnectFour
 
         private void pb_Click(object sender, EventArgs e)
         {
-            var clickedPictureBox = (PictureBox)sender;
+            if (connectFour.IsBoardFull || connectFour.Winner != Player.None) return;
             try
             {
-                var colIndex = Convert.ToByte(clickedPictureBox.Tag);
-                _board.Play(colIndex);
+                var colIndex = Convert.ToByte(((PictureBox)sender).Tag);
+                connectFour.Play(colIndex);
             }
-            catch (Exception exception)
+            catch (InvalidOperationException exception)
             {
                 MessageBox.Show(exception.Message);
             }
-            DrawBoard(_board.GameBoard);
-            var winnerPiece = _board.CheckForWinner();
-            if (winnerPiece != Piece.None)
+            DrawBoard(connectFour);
+            if (connectFour.Winner != Player.None)
             {
-                MessageBox.Show($"GAME OVER!!\n{winnerPiece} Wins");
-                _board = new Board();
-                DrawBoard(_board.GameBoard);
+                MessageBox.Show($"GAME OVER!!\n{connectFour.Winner} Wins");
+            }
+            else if (connectFour.IsBoardFull) // Don't remove the else! The player may win in last move and the two conditions will be true.
+            {
+                MessageBox.Show("The game ended in a draw.");
             }
         }
 
-        private void DrawBoard(Piece[,] board)
+        private void DrawBoard(ConnectFour connectFour)
         {
             foreach (var pb in this.Controls.OfType<PictureBox>())
             {
-                var rowIndex = pb.Name[2] - '0';
-                var columnIndex = pb.Name[3] - '0';
-                var piece = board[rowIndex, columnIndex];
+                int rowIndex = pb.Name[2] - '0';
+                int columnIndex = pb.Name[3] - '0';
+                Player piece = connectFour.GetPieceAt(rowIndex, columnIndex);
                 switch (piece)
                 {
-                    case Piece.Red:
+                    case Player.Red:
                         pb.Image = Properties.Resources.red;
                         break;
-                    case Piece.Yellow:
+                    case Player.Yellow:
                         pb.Image = Properties.Resources.yellow;
                         break;
-                    case Piece.None:
+                    case Player.None:
                         pb.Image = Properties.Resources.empty;
                         break;
                 }
 
             }
-            label1.Text = _board.PlayerTurn + "'s Turn";
-            label1.ForeColor = _board.PlayerTurn == Piece.Red ? Color.Red : Color.Yellow;
+            label1.Text = $"{this.connectFour.WhoseTurn}'s Turn";
+            label1.ForeColor = this.connectFour.WhoseTurn == Player.Red ? Color.Red : Color.Yellow;
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
@@ -75,22 +71,22 @@ namespace ConnectFour
             if (MessageBox.Show("Are you sure you want to create a new game ?\nThis action can NOT be undone",
                     Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) !=
                 DialogResult.Yes) return;
-            _board = new Board();
-            DrawBoard(_board.GameBoard);
+            connectFour = new ConnectFour(new XInARowGameEngine());
+            DrawBoard(connectFour);
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
             try
             {
-                _board.UndoLastMove();
+                connectFour.UndoLastMove();
             }
-            catch (Exception exception)
+            catch (InvalidOperationException ex)
             {
-                MessageBox.Show(exception.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
-            DrawBoard(_board.GameBoard);
+            DrawBoard(connectFour);
 
         }
     }

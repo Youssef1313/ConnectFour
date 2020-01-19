@@ -1,6 +1,6 @@
 ﻿namespace ConnectFour
 {
-    enum Piece
+    enum Player
     {
         None,
         Red,
