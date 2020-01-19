@@ -11,7 +11,7 @@ namespace ConnectFour
         public Form1()
         {
             InitializeComponent();
-            foreach (var pb in this.Controls.OfType<PictureBox>())
+            foreach (var pb in Controls.OfType<PictureBox>())
             {
                 pb.Click += pb_Click;
             }
