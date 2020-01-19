@@ -20,10 +20,10 @@ namespace ConnectFour
 
         private void pb_Click(object sender, EventArgs e)
         {
-            var clickedPictureBox = (PictureBox)sender;
+            if (connectFour.IsBoardFull || connectFour.Winner != Player.None) return;
             try
             {
-                var colIndex = Convert.ToByte(clickedPictureBox.Tag);
+                var colIndex = Convert.ToByte(((PictureBox)sender).Tag);
                 connectFour.Play(colIndex);
             }
             catch (Exception exception)
@@ -34,8 +34,10 @@ namespace ConnectFour
             if (connectFour.Winner != Player.None)
             {
                 MessageBox.Show($"GAME OVER!!\n{connectFour.Winner} Wins");
-                connectFour = new ConnectFour(new XInARowGameEngine());
-                DrawBoard(connectFour);
+            }
+            else if (connectFour.IsBoardFull) // Don't remove the else! The player may win in last move and the two conditions will be true.
+            {
+                MessageBox.Show("The game ended in a draw.");
             }
         }
 
