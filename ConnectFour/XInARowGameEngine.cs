@@ -23,6 +23,15 @@ namespace ConnectFour
         // Public methods.
         public void SetDimensions(int rows, int columns)
         {
+            if (rows <= 0)
+            {
+                throw new InvalidOperationException($"Argument '{nameof(rows)}' must be a positive value. The value '{rows}' not allowed.");
+            }
+            if (columns <= 0)
+            {
+                throw new InvalidOperationException($"Argument '{nameof(columns)}' must be a positive value. The value '{columns}' not allowed.");
+            }
+
             Rows = rows;
             Columns = columns;
             WhoseTurn = Player.Red;
