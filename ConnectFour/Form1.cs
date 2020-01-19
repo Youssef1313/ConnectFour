@@ -7,7 +7,7 @@ namespace ConnectFour
 {
     public partial class Form1 : Form
     {
-        private  ConnectFour _board = new ConnectFour(new XInARowGameEngine());
+        private  ConnectFour connectFour = new ConnectFour(new XInARowGameEngine());
         public Form1()
         {
             InitializeComponent();
@@ -24,18 +24,18 @@ namespace ConnectFour
             try
             {
                 var colIndex = Convert.ToByte(clickedPictureBox.Tag);
-                _board.Play(colIndex);
+                connectFour.Play(colIndex);
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
-            DrawBoard(_board);
-            if (_board.Winner != Player.None)
+            DrawBoard(connectFour);
+            if (connectFour.Winner != Player.None)
             {
-                MessageBox.Show($"GAME OVER!!\n{_board.Winner} Wins");
-                _board = new ConnectFour(new XInARowGameEngine());
-                DrawBoard(_board);
+                MessageBox.Show($"GAME OVER!!\n{connectFour.Winner} Wins");
+                connectFour = new ConnectFour(new XInARowGameEngine());
+                DrawBoard(connectFour);
             }
         }
 
@@ -60,8 +60,8 @@ namespace ConnectFour
                 }
 
             }
-            label1.Text = $"{_board.WhoseTurn}'s Turn";
-            label1.ForeColor = _board.WhoseTurn == Player.Red ? Color.Red : Color.Yellow;
+            label1.Text = $"{this.connectFour.WhoseTurn}'s Turn";
+            label1.ForeColor = this.connectFour.WhoseTurn == Player.Red ? Color.Red : Color.Yellow;
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
@@ -69,22 +69,22 @@ namespace ConnectFour
             if (MessageBox.Show("Are you sure you want to create a new game ?\nThis action can NOT be undone",
                     Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) !=
                 DialogResult.Yes) return;
-            _board = new ConnectFour(new XInARowGameEngine());
-            DrawBoard(_board);
+            connectFour = new ConnectFour(new XInARowGameEngine());
+            DrawBoard(connectFour);
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
             try
             {
-                _board.UndoLastMove();
+                connectFour.UndoLastMove();
             }
             catch (InvalidOperationException ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
-            DrawBoard(_board);
+            DrawBoard(connectFour);
 
         }
     }
