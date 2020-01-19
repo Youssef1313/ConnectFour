@@ -26,7 +26,7 @@ namespace ConnectFour
                 var colIndex = Convert.ToByte(((PictureBox)sender).Tag);
                 connectFour.Play(colIndex);
             }
-            catch (Exception exception)
+            catch (InvalidOperationException exception)
             {
                 MessageBox.Show(exception.Message);
             }
